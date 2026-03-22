@@ -99,6 +99,7 @@
   width: 32vw;
   display: flex;
   flex-direction: column;
+  align-self: baseline;
   font-size: clamp(15px, 1.6vw, 22px);
   font-weight: 400;
   line-height: 1.1;
