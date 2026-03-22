@@ -233,6 +233,14 @@ export default function ScrollingRules() {
                       />
                     ) : null}
                   </div>
+                  {(i === 0 || i === rules.length - 1) && (
+                    <p className={styles.copyright}>
+                      © כל הזכויות שמורות{" "}
+                      <a href="https://www.moriz.studio" target="_blank" rel="noopener noreferrer">
+                        moriz.studio
+                      </a>
+                    </p>
+                  )}
                 </div>
               </div>
             </div>

@@ -147,6 +147,28 @@
   }
 }
 
+.copyright {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: clamp(11px, 0.9vw, 13px);
+  font-weight: 400;
+  opacity: 0.4;
+  direction: rtl;
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
 .websiteUrl {
   text-decoration: underline;
 }

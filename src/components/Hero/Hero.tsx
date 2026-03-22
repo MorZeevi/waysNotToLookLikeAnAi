@@ -19,7 +19,7 @@ export default function Hero() {
           <br />
           לגרום לAI
           <br />
-          לא להיראות <br /> כמו AI
+          לא להיות <br /> כמו AI
         </h1>
 
         <p className={styles.description}>
