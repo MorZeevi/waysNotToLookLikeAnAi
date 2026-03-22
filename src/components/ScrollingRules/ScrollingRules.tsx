@@ -110,6 +110,8 @@ export default function ScrollingRules() {
     if (!section) return;
 
     const slides = section.querySelectorAll<HTMLElement>(`.${styles.slide}`);
+    const isMobile = window.matchMedia("(max-aspect-ratio: 1/1)").matches;
+    const pinDistance = isMobile ? window.innerHeight * 0.4 : window.innerHeight;
 
     slides.forEach((slide) => {
       const contentWrapper = slide.querySelector<HTMLElement>(
@@ -129,7 +131,7 @@ export default function ScrollingRules() {
           pin: contentWrapper,
           trigger: slide,
           start: "top 0%",
-          end: "+=" + window.innerHeight,
+          end: "+=" + pinDistance,
           scrub: true,
         },
       });
@@ -140,7 +142,7 @@ export default function ScrollingRules() {
         scrollTrigger: {
           trigger: content,
           start: "top -80%",
-          end: "+=" + 0.2 * window.innerHeight,
+          end: "+=" + 0.2 * pinDistance,
           scrub: true,
         },
       });
