@@ -2,35 +2,46 @@
 
 import { useEffect, useRef } from "react";
 import Image, { StaticImageData } from "next/image";
-import img1 from "@/assets/1.png";
-import img2 from "@/assets/2.png";
-import img3 from "@/assets/3.png";
-import img4 from "@/assets/4.png";
-import img5 from "@/assets/5.png";
+import cmp1Before from "@/assets/images/1_1.png";
+import cmp1After from "@/assets/images/1_2.png";
+import img2 from "@/assets/images/2.png";
+import img3 from "@/assets/images/3.png";
+import img4 from "@/assets/images/4.png";
+import img5 from "@/assets/images/5.png";
+import img6 from "@/assets/images/6.png";
+import img9 from "@/assets/images/9.png";
 import contactImg from "@/assets/contact.png";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { FallingPattern } from "@/components/ui/falling-pattern";
+import { ImageComparison } from "@/components/ui/image-comparison";
 import styles from "./ScrollingRules.module.scss";
 
 type Rule = {
   num?: string;
-  image: StaticImageData;
+  image?: StaticImageData;
   title: string;
   text?: React.ReactNode;
   isContact?: boolean;
+  useFallingPattern?: boolean;
+  useImageComparison?: boolean;
+  comparisonBefore?: StaticImageData;
+  comparisonAfter?: StaticImageData;
 };
 
 const rules: Rule[] = [
   {
     num: "01",
-    image: img1,
+    useImageComparison: true,
+    comparisonBefore: cmp1Before,
+    comparisonAfter: cmp1After,
     title: "לבטל את העיצוב הדיפולטיבי",
     text: (
       <>
-        כמה עוד אפשר לראות את אותה הקופסה בצבע קצת שונה? אותו צל (Shadow), עיגול פינות (Border-radius) ואייקונים שנראים כאילו נלקחו מאתר של קופת חולים.
+        כמה עוד אפשר לראות את אותה הקופסה בצבע קצת שונה?  אותו עיגול פינות  ואייקונים שנראים כאילו נלקחו מאתר של קופת חולים?
         <br />
         <br />
-        כחלק מהתהוות הפרויקט שלכם, פשוט תבקשו מה-AI לצאת מהתבנית. פרומפט להעתקה:
+        כחלק מתחילת מהפרויקט שלכם, פשוט תבקשו מה-AI לצאת מהתבנית. פרומפט להעתקה:
         <br />
         <br />
         <span style={{ fontSize: "0.9em", fontStyle: "italic", whiteSpace: "pre-wrap", color: "inherit", opacity: 0.8 }}>
@@ -43,49 +54,49 @@ const rules: Rule[] = [
     num: "02",
     image: img2,
     title: "רפרנסים מהשראות מתאימות",
-    text: "הדביקו פרינט סקרינים מאתרים שאתם אוהבים. במקום לבקש מה-AI 'תעצב לי אתר יפה', תראו לו למה אתם מתכוונים. יש כל כך הרבה אתרים מדהימים לקחת מהם השראה: Cosmos, Dribbble, Pinterest, Awwwards. תעלו סקרינשוט ותנחו אותו 'אני רוצה את התחושה והסגנון הזה'.",
+    text: "הדביקו פרינט סקרינים מאתרים שאתם אוהבים ומתאימים לתוכן. במקום לבקש מה-AI 'תעצב לי אתר יפה', תראו לו למה אתם מתכוונים. יש כל כך הרבה אתרים מדהימים לקחת מהם השראה: Cosmos, Dribbble, Pinterest, Awwwards. תעלו סקרינשוט ותנחו אותו 'אני רוצה את התחושה והסגנון הזה'.",
   },
   {
     num: "03",
     image: img3,
     title: "לעצב בפיגמה ולחבר ב-MCP",
-    text: "אפשר להשתמש בכלים כמו פיגמה, או סטיץ׳ (Stitch), ופשוט לחבר לרפוזיטורי שלכם בעזרת MCP. רק שימו לב שחשוב מאוד להשתמש ב-Auto Layout כדי שהתרגום לקוד יהיה מדויק. דרך מדהימה להמשיך לעצב בעצמכם עם התוצאה הסופית בידיים שלכם.",
+    text: "אפשר להשתמש בפיגמה ולהיעזר בפיגמה מייק, אני מצאתי לנכון שכדאי לעצב את המסכים העיקריים ואז למסכים הפחות חשובים להיעזר בפיגמה מייק ועליו לעשות שינויים. לאחר מכן, פשוט לחבר לפרויקט שלכם בעזרת MCP. וזה רק נשמע מפחיד. רק שימו לב שחשוב מאוד להשתמש ב-Auto Layout כדי שהתרגום לקוד יהיה מדויק. זאת דרך מדהימה להמשיך לעצב בעצמכם ועדיין להנות מAI.",
   },
   {
     num: "04",
     image: img4,
-    title: "ספריית UI/UX Pro Max",
-    text: "אל תמציאו את הגלגל מחדש, אבל גם אל תשתמשו בגלגל השחוק שכולם נוסעים עליו. קחו ספריות קומפוננטות מתקדמות (כמו Radix, Aceternity או ספריות אינדי שוות), שמציעות בסיס קוד מהוקצע. ה-AI יעזור לכם לשנות את הסטייל שלהן ככה שייראו בדיוק כמו המותג שלכם ולא כמו עותק דהוי.",
+    title: "ספריית UI UX Pro Max",
+    text: "מדובר בAI Skill שהוא מדהים. מתאים לעבוד עם קלוד קוד וחבריו. יוצר Design System מדויק תוך ניתוח דרישות המוצר, סגנון, צבעים וכללי UX. מעל 60 סגנונות שונים ולכם נשאר רק לבחור.",
   },
   {
     num: "05",
     image: img5,
     title: "לקרוא בקול רם",
-    text: "האם זה משהו שאתם הייתם אומרים בחיים האמיתיים? אם כן – תשאירו. אם לא, איך הייתם מנסחים את זה בשיחה אמיתית עם לקוח או חבר? הטקסט שלכם צריך להישמע טבעי, אנושי ובגובה העיניים. לא כמו פלטפורמת שירות לקוחות זולה.",
+    text: "האם הטקסט זה משהו שאתם הייתם אומרים בחיים האמיתיים? אם כן – תשאירו. אם לא, איך הייתם מנסחים את זה בשיחה אמיתית עם לקוח או חבר? הטקסט שלכם צריך להישמע טבעי, אנושי ובגובה העיניים. לא כמו סירי.",
   },
   {
     num: "06",
-    image: img1,
+    image: img6,
     title: "להיפטר מביטויים נפוצים",
-    text: "״בעולם דינאמי של...״, ״בעידן הדיגיטלי של היום...״, ״לנפץ את תקרת הזכוכית...״ – כולם צריכים ללכת לפח. ועל מקפים מיותרים בכלל אין צורך להרחיב (פשוט להכחיד אותם מהטקסטים שלכם, דחוף). דברו ישר ולעניין.",
+    text: "משפטים שמתחילים כמו: ״בעולם דינאמי של...״, ״בעידן הדיגיטלי של היום...״ הם פשוט מעוררים סלידה. על מקפים מיותרים בכלל אין צורך להרחיב (פשוט להכחיד אותם מהטקסטים שלכם, דחוף)",
   },
   {
     num: "07",
-    image: img2,
+    useFallingPattern: true,
     title: "21st Dev",
-    text: "ספריות אנימציות מטורפות וקומפוננטות יעילות שנותנות נוק-אאוט רציני לכל המכניות של ה-AI. ככה פשוט, ככה מגניב. מוצאים קומפוננטות מהממות, מעתיקים את הפרומפט, מדביקים ל-AI – וזהו. יש עיצוב קצה שישאיר אנשים עם פה פתוח.",
+    text: "ספריות אנימציות מטורפות וקומפוננטות יעילות שנותנות נוק-אאוט רציני לכל המכניות של ה-AI. ככה פשוט, ככה מגניב. מוצאים קומפוננטה שאהבתם ומתאימה (יש רקעים, כרטיסיות כפתורים ועוד), מעתיקים את הפרומפט, מדביקים ל-AI וזהו. רוצו לבדוק (אבל אחרי שתסיימו את העקרון הבא)",
   },
   {
     num: "08",
-    image: img3,
+    image: img9,
     title: "לסגור את המחשב",
-    text: "כן, מה ששמעתם. סגרו את המחשב. קחו דף ועט (גם אם אתם מציירים רע) ושרטטו איך הייתם רוצים שהאתר ייראה. דמיינו איך הקהל הפוטנציאלי שלכם מרגיש בזמן שהוא נכנס לממשק שלכם. תעשו סקיצה מהירה, וחזרו ל-AI חכמים עמוקים ומדויקים יותר.",
+    text: "כן, מה שקראתם. סגרו את המחשב. קחו דף ועט (גם אם אתם מציירים גרוע) ושרטטו איך הייתם רוצים שהאתר ייראה. דמיינו איך הקהל הפוטנציאלי שלכם מרגיש בזמן שהוא נכנס לממשק שלכם ומה הוא רואה. תעשו סקיצה מהירה, וחזרו ל-AI חכמים עמוקים ומדויקים יותר.",
   },
   {
     isContact: true,
     image: contactImg,
-    title: "נשאר בקשר",
-    text: "עיצוב ופיתוח שנראים כמו שהם נועדו להיראות.",
+    title: "דונט בי א סרטריינג׳ר קיפ און קשר",
+    text: "שמי מור ואני יוצרת חוויות דיגטליות מבוססות מחקר, אפשר לפנות אלי לכל התייעצות או עזרה אני תמיד שמחה להכיר ולעזור לאנשים חדשים",
   },
 ];
 
@@ -160,42 +171,67 @@ export default function ScrollingRules() {
                           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <defs>
                               <radialGradient id="ig-rg" cx="30%" cy="107%" r="150%">
-                                <stop offset="0%" stopColor="#ffd676"/>
-                                <stop offset="25%" stopColor="#f9a844"/>
-                                <stop offset="50%" stopColor="#f1723a"/>
-                                <stop offset="75%" stopColor="#c4326d"/>
-                                <stop offset="100%" stopColor="#5f52cc"/>
+                                <stop offset="0%" stopColor="#ffd676" />
+                                <stop offset="25%" stopColor="#f9a844" />
+                                <stop offset="50%" stopColor="#f1723a" />
+                                <stop offset="75%" stopColor="#c4326d" />
+                                <stop offset="100%" stopColor="#5f52cc" />
                               </radialGradient>
                             </defs>
-                            <rect width="24" height="24" rx="6" fill="url(#ig-rg)"/>
-                            <circle cx="12" cy="12" r="4.5" fill="none" stroke="white" strokeWidth="1.8"/>
-                            <circle cx="17.5" cy="6.5" r="1.1" fill="white"/>
+                            <rect width="24" height="24" rx="6" fill="url(#ig-rg)" />
+                            <circle cx="12" cy="12" r="4.5" fill="none" stroke="white" strokeWidth="1.8" />
+                            <circle cx="17.5" cy="6.5" r="1.1" fill="white" />
                           </svg>
                         </a>
                         <a href="https://www.linkedin.com/in/mor-zeevi/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="24" height="24" rx="5" fill="#0077B5"/>
-                            <path d="M6.5 9.5h2v8h-2v-8zm1-1.5a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zM10.5 9.5h1.9v1.1c.4-.7 1.3-1.3 2.6-1.3 2.1 0 3 1.4 3 3.4v4.8h-2v-4.4c0-1-.4-1.8-1.5-1.8-1 0-1.5.7-1.5 1.8v4.4h-2V9.5z" fill="white"/>
+                            <rect width="24" height="24" rx="5" fill="#0077B5" />
+                            <path d="M6.5 9.5h2v8h-2v-8zm1-1.5a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zM10.5 9.5h1.9v1.1c.4-.7 1.3-1.3 2.6-1.3 2.1 0 3 1.4 3 3.4v4.8h-2v-4.4c0-1-.4-1.8-1.5-1.8-1 0-1.5.7-1.5 1.8v4.4h-2V9.5z" fill="white" />
                           </svg>
                         </a>
                         <a href="https://wa.me/972522937174" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
                           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="12" r="12" fill="#25D366"/>
-                            <path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.5-.8-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.5 0-.2-.7-1.7-.9-2.3-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.1 2 3.1 4.9 4.3.7.3 1.2.4 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.7 1.8-1.3.2-.6.2-1.2.2-1.3-.1-.2-.3-.3-.6-.4z" fill="white"/>
+                            <circle cx="12" cy="12" r="12" fill="#25D366" />
+                            <path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.5-.8-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.5 0-.2-.7-1.7-.9-2.3-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.1 2 3.1 4.9 4.3.7.3 1.2.4 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.7 1.8-1.3.2-.6.2-1.2.2-1.3-.1-.2-.3-.3-.6-.4z" fill="white" />
                           </svg>
                         </a>
                       </div>
+                      <a href="https://www.moriz.studio" target="_blank" rel="noopener noreferrer" className={styles.websiteLink}>
+                        וזה האתר שלי <span className={styles.websiteUrl}>www.moriz.studio</span>
+                      </a>
                     </div>
                   ) : (
                     <p className={styles.ruleText}>{rule.text}</p>
                   )}
                   <div className={styles.bottomRight}>
                     {!rule.isContact && <p className={styles.ruleNum}>({rule.num})</p>}
-                    <Image
-                      src={rule.image}
-                      alt=""
-                      className={styles.placeholder}
-                    />
+                    {rule.useImageComparison ? (
+                      <div className={styles.comparisonWrapper}>
+                        <ImageComparison
+                          beforeSrc={rule.comparisonBefore?.src}
+                          afterSrc={rule.comparisonAfter?.src}
+                        />
+                      </div>
+                    ) : rule.useFallingPattern ? (
+                      <div className={styles.fallingPatternWrapper}>
+                        <FallingPattern
+                          color="#f1f1f1"
+                          backgroundColor="#121212"
+                          duration={150}
+                          blurIntensity="1em"
+                          density={1}
+                        />
+                        <div className={styles.fallingPatternLabel}>
+                          דוגמה לרקע שלקח לי לעשות בדקה עם 21st dev
+                        </div>
+                      </div>
+                    ) : rule.image ? (
+                      <Image
+                        src={rule.image}
+                        alt=""
+                        className={styles.placeholder}
+                      />
+                    ) : null}
                   </div>
                 </div>
               </div>

@@ -19,13 +19,11 @@ export default function Hero() {
           <br />
           לגרום לAI
           <br />
-          לא להיראות כמו
-          <br className={styles.desktopBr} />
-          {" "}AI
+          לא להיראות <br /> כמו AI
         </h1>
 
         <p className={styles.description}>
-          מדריך פרקטי איך ליהנות מכלים מדהימים
+          מדריך פרקטי איך להנות מכלים מדהימים
           <br />
           בלי להחריב לעצמנו את העסק בגנריות מחרידה.
         </p>
