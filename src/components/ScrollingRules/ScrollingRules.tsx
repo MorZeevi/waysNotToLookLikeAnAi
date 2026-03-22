@@ -95,7 +95,7 @@ const rules: Rule[] = [
   {
     isContact: true,
     image: contactImg,
-    title: "דונט בי א סרטריינג׳ר קיפ און קשר",
+    title: "דונט בי א סרטריינג׳ר קיפ און קשר,",
     text: "שמי מור ואני יוצרת חוויות דיגטליות מבוססות מחקר, אפשר לפנות אלי לכל התייעצות או עזרה אני תמיד שמחה להכיר ולעזור לאנשים חדשים",
   },
 ];
@@ -233,7 +233,7 @@ export default function ScrollingRules() {
                       />
                     ) : null}
                   </div>
-                  {(i === 0 || i === rules.length - 1) && (
+                  {i === rules.length - 1 && (
                     <p className={styles.copyright}>
                       © כל הזכויות שמורות{" "}
                       <a href="https://www.moriz.studio" target="_blank" rel="noopener noreferrer">

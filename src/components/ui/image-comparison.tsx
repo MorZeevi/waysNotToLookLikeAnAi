@@ -43,6 +43,7 @@ export function ImageComparison({
         borderRadius: 'inherit',
         ...style,
       }}
+      onMouseDown={() => setDragging(true)}
       onMouseMove={handleMove}
       onMouseUp={() => setDragging(false)}
       onMouseLeave={() => setDragging(false)}
@@ -105,10 +106,7 @@ export function ImageComparison({
           boxShadow: '0 2px 8px rgba(0,0,0,0.25)',
           transition: 'transform 0.15s ease',
         }}
-        onMouseDown={(e) => {
-          setDragging(true);
-          handleMove(e as unknown as React.MouseEvent);
-        }}
+        onMouseDown={() => setDragging(true)}
         onTouchStart={(e) => {
           setDragging(true);
           handleMove(e);
