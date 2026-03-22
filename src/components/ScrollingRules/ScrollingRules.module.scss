@@ -230,7 +230,7 @@
   }
 
   .ruleTitle {
-    font-size: clamp(40px, 14vw, 72px);
+    font-size: clamp(28px, 10vw, 52px);
   }
 
   .ruleNum {
@@ -271,8 +271,7 @@
 
   .placeholder {
     width: 100%;
-    height: auto;
-    max-height: 40vh;
-    object-fit: contain;
+    height: 40vh;
+    object-fit: cover;
   }
 }

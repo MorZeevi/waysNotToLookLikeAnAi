@@ -1,12 +1,25 @@
+'use client';
+
+import { useState, useEffect } from "react";
 import styles from "./Hero.module.scss";
 import { EtherealShadow } from "@/components/EtherealShadow/EtherealShadow";
 
 export default function Hero() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-aspect-ratio: 1/1)");
+    setIsMobile(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+
   return (
     <section className={styles.hero}>
       <EtherealShadow
         color="rgba(128, 128, 128, 1)"
-        animation={{ scale: 100, speed: 100 }}
+        animation={{ scale: isMobile ? 30 : 100, speed: 100 }}
         noise={{ opacity: 1, scale: 1.2 }}
         sizing="fill"
         style={{ position: "absolute", inset: 0, zIndex: 0 }}
