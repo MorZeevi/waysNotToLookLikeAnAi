@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  --color-bg: #121212;
+  --color-text: #f1f1f1;
+  --color-accent-green: #c4ef7a;
+  --color-accent-green-text: #527200;
+  --color-accent-red: #fc4c3b;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.3;
+  overflow-x: hidden;
+}
