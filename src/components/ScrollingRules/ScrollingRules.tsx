@@ -120,8 +120,6 @@ export default function ScrollingRules() {
 
       const randomZ = (Math.random() - 0.5) * 10;
 
-      const slideHeight = slide.offsetHeight;
-
       gsap.to(content, {
         rotationZ: randomZ,
         scale: 0.7,
@@ -131,7 +129,7 @@ export default function ScrollingRules() {
           pin: contentWrapper,
           trigger: slide,
           start: "top 0%",
-          end: "+=" + slideHeight,
+          end: "+=" + window.innerHeight,
           scrub: true,
         },
       });
@@ -142,7 +140,7 @@ export default function ScrollingRules() {
         scrollTrigger: {
           trigger: content,
           start: "top -80%",
-          end: "+=" + 0.2 * slideHeight,
+          end: "+=" + 0.2 * window.innerHeight,
           scrub: true,
         },
       });
