@@ -8,7 +8,7 @@
 }
 
 .slide {
-  height: 100vh;
+  height: 100dvh;
   box-shadow: 3px 3px 30px rgba(0, 0, 0, 0.14);
 }
 
@@ -240,7 +240,7 @@
   .bottom {
     flex-direction: column;
     align-items: flex-start;
-    gap: 16px;
+    gap: 24px;
     flex: 1;
     min-height: 0;
   }
@@ -259,19 +259,19 @@
 
   .comparisonWrapper {
     width: 100%;
-    max-height: 40vh;
+    max-height: 50vh;
     aspect-ratio: unset;
   }
 
   .fallingPatternWrapper {
     width: 100%;
-    max-height: 40vh;
+    max-height: 50vh;
     aspect-ratio: unset;
   }
 
   .placeholder {
     width: 100%;
-    height: 40vh;
+    height: 50vh;
     object-fit: cover;
   }
 }
