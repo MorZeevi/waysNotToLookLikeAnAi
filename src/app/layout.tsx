@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: "8 דרכים לגרום לAI לא להיות כמו AI",
   openGraph: {
     title: "8 דרכים לגרום לAI לא להיות כמו AI",
-    description: "8 כללים להישאר אנושי בעידן הבינה המלאכותית",
+    description: "",
     images: [{ url: '/opengraph-image', width: 1200, height: 630 }],
   },
   twitter: {
