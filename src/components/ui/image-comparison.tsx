@@ -40,6 +40,7 @@ export function ImageComparison({
         height: '100%',
         overflow: 'hidden',
         userSelect: 'none',
+        touchAction: 'none',
         borderRadius: 'inherit',
         ...style,
       }}
@@ -47,6 +48,7 @@ export function ImageComparison({
       onMouseMove={handleMove}
       onMouseUp={() => setDragging(false)}
       onMouseLeave={() => setDragging(false)}
+      onTouchStart={(e) => { setDragging(true); handleMove(e); }}
       onTouchMove={handleMove}
       onTouchEnd={() => setDragging(false)}
     >
@@ -107,10 +109,6 @@ export function ImageComparison({
           transition: 'transform 0.15s ease',
         }}
         onMouseDown={() => setDragging(true)}
-        onTouchStart={(e) => {
-          setDragging(true);
-          handleMove(e);
-        }}
       >
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
           <line x1="4" y1="2" x2="4" y2="12" stroke="#121212" strokeWidth="1.5" strokeLinecap="round" />

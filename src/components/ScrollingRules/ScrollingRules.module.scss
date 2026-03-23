@@ -220,6 +220,23 @@
   overflow: hidden;
 }
 
+// ── Under 1500px ────────────────────────────────────────────────────────────
+
+@media (max-width: 1500px) {
+  .ruleTitle {
+    font-size: 70px;
+  }
+}
+
+// ── Small laptops (under ~15 inch) ──────────────────────────────────────────
+
+@media (max-width: 1440px) {
+  .ruleText {
+    align-self: baseline;
+    padding-top: 40px;
+  }
+}
+
 // ── Mobile ──────────────────────────────────────────────────────────────────
 
 @media (max-aspect-ratio: 1/1) {

@@ -10,16 +10,18 @@ const leon = localFont({
   display: "swap",
 });
 
+const BASE_URL = 'https://ways-not-to-look-like-an-ai-git-main-mors-projects-59686dd6.vercel.app';
+
 export const metadata: Metadata = {
   title: "8 דרכים לגרום לAI לא להיות כמו AI",
   openGraph: {
     title: "8 דרכים לגרום לAI לא להיות כמו AI",
     description: "",
-    images: [{ url: '/opengraph-image', width: 1200, height: 630 }],
+    images: [{ url: `${BASE_URL}/opengraph-image`, width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
-    images: ['/opengraph-image'],
+    images: [`${BASE_URL}/opengraph-image`],
   },
 };
 
