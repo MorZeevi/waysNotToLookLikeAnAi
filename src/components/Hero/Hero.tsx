@@ -19,7 +19,7 @@ export default function Hero() {
     <section className={styles.hero}>
       <EtherealShadow
         color="rgba(128, 128, 128, 1)"
-        animation={{ scale: isMobile ? 30 : 100, speed: 30 }}
+        animation={{ scale: isMobile ? 30 : 100, speed: isMobile ? 70 : 90 }}
         noise={{ opacity: 1, scale: 1.2 }}
         sizing="fill"
         style={{ position: "absolute", inset: 0, zIndex: 0 }}
