@@ -11,8 +11,16 @@ const leon = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "8 דרכים לגרום לAI לא להיות שׁ",
-  description: "8 כללים להישאר אנושי בעידן הבינה המלאכותית",
+  title: "8 דרכים לגרום לAI לא להיות כמו AI",
+  openGraph: {
+    title: "8 דרכים לגרום לAI לא להיות כמו AI",
+    description: "8 כללים להישאר אנושי בעידן הבינה המלאכותית",
+    images: [{ url: '/opengraph-image', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/opengraph-image'],
+  },
 };
 
 export default function RootLayout({
