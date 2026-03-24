@@ -32,7 +32,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="he" dir="rtl" className={leon.className}>
-      <body>{children}</body>
+      <body suppressHydrationWarning>{children}</body>
     </html>
   );
 }

@@ -222,7 +222,7 @@ export default function ScrollingRules() {
                           density={1}
                         />
                         <div className={styles.fallingPatternLabel}>
-                          דוגמה לרקע שלקח לי לעשות בדקה עם 21st dev
+                          דוגמה לרקע שלקח לי דקה לעשות  עם 21st dev
                         </div>
                       </div>
                     ) : rule.image ? (

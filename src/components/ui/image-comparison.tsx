@@ -35,9 +35,8 @@ export function ImageComparison({
     <div
       className={className}
       style={{
-        position: 'relative',
-        width: '100%',
-        height: '100%',
+        position: 'absolute',
+        inset: 0,
         overflow: 'hidden',
         userSelect: 'none',
         touchAction: 'none',
